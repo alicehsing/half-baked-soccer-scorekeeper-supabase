@@ -17,22 +17,28 @@ redirectToGames();
 
 signUpForm.addEventListener('submit', async(event)=>{
     event.preventDefault();
+
+    // "sign up the user"
     const user = await signupUser(signUpEmail.value, signUpPassword.value);
 
     if (user){
         redirectToGames();
     } else {
+        // eslint-disable-next-line no-console
         console.error(user);
     }
 });
 
 signInForm.addEventListener('submit', async(event)=>{
     event.preventDefault();
+
     const user = await signInUser(signInEmail.value, signInPassword.value);
     
     if (user){
         redirectToGames();
     } else {
+        alert('invalid login credentials');
+        // eslint-disable-next-line no-console
         console.error(user);
     }
 });
